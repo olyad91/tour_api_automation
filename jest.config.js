@@ -10,7 +10,8 @@ module.exports = {
     ...tsJestTransformCfg,
   },
 };
-  reporters: [
+
+reporters: [
     "default",
     [
       "jest-html-reporter",
