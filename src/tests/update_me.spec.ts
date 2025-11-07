@@ -1,5 +1,6 @@
 import { faker } from "@faker-js/faker"
-import { deleteUser, getUser, login, signUp, updateUser } from "./helper/user"
+import { deleteUser, getUser, login, signUp, updateUser, uploadUserPhoto } from "./helper/user"
+import * as path from "path"
 
 let user
 let cookie
@@ -47,4 +48,12 @@ let token
         expect(updateUserAndEmail.name).toBe(newName)
         expect(updateUserAndEmail.email.toLowerCase()).toBe(newEmail.toLowerCase())
     })
+
+    it('should update user photo upload', async () => {
+        const filePath = path.join(__dirname, '../../data/pasv.png');
+        const photo = await uploadUserPhoto(filePath, token)
+        expect(photo).toBeDefined()
+    })
   })
+
+

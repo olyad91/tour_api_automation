@@ -50,3 +50,11 @@ export async function updateUser(updateData: Partial<User>, token: string) {
     expect(res.body.status).toBe('success')
     return res.body.data.user
 }
+
+export async function uploadUserPhoto(filePath: string, token: string) {
+    const res = await request.patch('/updateMe').set('Authorization', `Bearer ${token}`).attach('photo', filePath)
+    
+    expect(res.statusCode).toBe(200)
+    expect(res.body.status).toBe('success')
+    return res.body.data.user.photo
+}
