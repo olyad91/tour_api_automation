@@ -10,3 +10,26 @@ module.exports = {
     ...tsJestTransformCfg,
   },
 };
+  reporters: [
+    "default",
+    [
+      "jest-html-reporter",
+      {
+        pageTitle: "Test Report",
+        outputPath: "test-reports/test-report.html",
+        includeFailureMsg: true,
+        includeConsoleLog: true,
+      },
+    ],
+       [
+      "jest-html-reporter",
+      {
+        pageTitle: "Test Report",
+        outputPath: "test-reports/test-report.html",
+        includeFailureMsg: true,
+        includeConsoleLog: true,
+      },
+    ],
+
+  ]
+
