@@ -58,3 +58,22 @@ export async function uploadUserPhoto(filePath: string, token: string) {
     expect(res.body.status).toBe('success')
     return res.body.data.user.photo
 }
+
+export async function updateUserNegative(updateData: Partial<User>, token: string) {
+    const res = await request.patch('/updateMe').set('Authorization', `Bearer ${token}`).send(updateData)
+    return res
+}
+
+export async function remainUser(token: string) {
+    const res = await (await request.patch('/remainMe').set('Authorization', `Bearer ${token}`))
+    expect(res.statusCode).toBe(200)
+    expect(res.body.status).toBe('success')
+    return res.body.data.user
+}
+export async function uploadUserPicture(filePath: string, token: string) {
+    const res = await request.patch('/updateMe').set('Authorization', `Bearer ${token}`).attach('photo', filePath)
+    
+    expect(res.statusCode).toBe(200)
+    expect(res.body.status).toBe('success')
+    return res.body.data.user.photo
+}
