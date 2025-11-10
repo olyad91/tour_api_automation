@@ -1,6 +1,8 @@
 import * as supertest from "supertest";
 import { faker } from "@faker-js/faker";
 import { Response } from "superagent";
+import { User } from "./helper/interface";
+import { deleteUser, signUp } from "./helper/user";
 
 const request = supertest("http://localhost:8001/api/v1/users");
 
@@ -10,7 +12,6 @@ interface UserData {
     password: string;
     passwordConfirm: string;
 }
-
 
 describe("User Sign Up", () => {
     it("should create a new user successfully", async () => {
@@ -114,4 +115,4 @@ describe("User Sign Up", () => {
             throw err;
         }
     })
-})
+   
