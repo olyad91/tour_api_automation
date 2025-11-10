@@ -153,7 +153,7 @@ const request = supertest('http://localhost:8001/api/v1/users');
 
             }
         })
-            it.only('should not create a new user if password shorter than 8 characters', async () => {
+            it('should not create a new user if password shorter than 8 characters', async () => {
             const userData = {
                 name: 'Test User',
                 email: 'test@example.com',
@@ -196,7 +196,7 @@ const request = supertest('http://localhost:8001/api/v1/users');
                 throw err;
             }
         })
-            it('should not create a new user if passwordConfirm doeas not match password', async () => {
+            it('should not create a new user if passwordConfirm does not match password', async () => {
             const userData = { 
                 name: 'Test User',
                 email: 'test@example.com',
@@ -217,7 +217,6 @@ const request = supertest('http://localhost:8001/api/v1/users');
                 throw err;
             }
         })
-    })
             it('should not create a new user if email already in registered', async () => {
             const userData = { 
                 name: 'Test User',
@@ -238,6 +237,4 @@ const request = supertest('http://localhost:8001/api/v1/users');
                 throw err;
             }
         })
-       
-    
-    
+    })
