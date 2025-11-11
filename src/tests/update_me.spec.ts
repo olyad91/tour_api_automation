@@ -132,7 +132,7 @@ let token
             expect(picture).toBeDefined()
         })
 
-        it.only('should succesfully ensure login still works after updates', async () => {
+        it.only('should succesfully ensure login still works after updates', async () => { //done
             const loginRes = await login({
                 email: user.email,
                 password: user.password
